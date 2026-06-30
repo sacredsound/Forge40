@@ -70,32 +70,30 @@ function App() {
   ]
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-purple-600 selection:text-white">
+    <div className="min-h-screen bg-neutral-light text-neutral-dark font-sans selection:bg-accent selection:text-white">
       
       {/* HEADER & NAV */}
-      <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-9 h-9 bg-gradient-to-tr from-purple-600 to-indigo-500 rounded-lg flex items-center justify-center font-bold text-white text-lg tracking-wider shadow-md shadow-purple-500/20">
-              F40
-            </div>
-            <span className="font-extrabold text-xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-purple-400 bg-clip-text text-transparent">
-              FORGE<span className="text-purple-500">40</span>
+      <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-border-grid">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/assets/logo.png" alt="Forge40 Logo" className="h-10 w-auto" />
+            <span className="font-display font-extrabold text-2xl tracking-tighter text-primary">
+              FORGE<span className="text-accent">40</span>
             </span>
           </div>
           
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="#pillars" className="hover:text-purple-400 transition-colors">Our Pillars</a>
-            <a href="#stack" className="hover:text-purple-400 transition-colors">Product Stack</a>
-            <a href="#quiz-section" className="hover:text-purple-400 transition-colors">Mobility Quiz</a>
-            <a href="#demo-section" className="hover:text-purple-400 transition-colors">AI Coach Demo</a>
-            <a href="#pricing" className="hover:text-purple-400 transition-colors">Pricing</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-bold uppercase tracking-wide text-primary/80">
+            <a href="#pillars" className="hover:text-accent transition-colors">Methodology</a>
+            <a href="#quiz-section" className="hover:text-accent transition-colors">Mobility Quiz</a>
+            <a href="#demo-section" className="hover:text-accent transition-colors">AI Coach</a>
+            <a href="#stack" className="hover:text-accent transition-colors">Products</a>
+            <a href="#pricing" className="hover:text-accent transition-colors">Pricing</a>
           </nav>
 
           <div>
             <a 
               href="#quiz-section" 
-              className="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-purple-600 hover:bg-purple-500 rounded-lg transition-all duration-200 shadow-md shadow-purple-600/20 hover:shadow-purple-500/30 active:scale-95"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-bold text-white bg-accent hover:bg-accent/90 rounded-full transition-all duration-200 shadow-lg shadow-accent/20 active:scale-95"
             >
               Take Free Quiz
             </a>
@@ -104,103 +102,91 @@ function App() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative overflow-hidden py-20 sm:py-32 lg:py-40">
-        {/* Background glow effects */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-600/10 rounded-full blur-[100px] pointer-events-none"></div>
+      <section className="relative overflow-hidden bg-primary text-white py-20 sm:py-32">
+        <div className="absolute inset-0 opacity-20">
+          <img src="/assets/hero-banner.png" alt="Training Background" className="w-full h-full object-cover" />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-transparent"></div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-purple-400 font-medium mb-8 animate-pulse">
-            <span className="w-2 h-2 rounded-full bg-purple-500"></span>
-            Re-engineered fitness for active adults aged 40–60
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-xs text-accent font-bold mb-8 uppercase tracking-widest">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+            Re-engineered for adults aged 40–60
           </div>
           
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-white max-w-5xl mx-auto leading-[1.1] mb-8">
-            Build Lasting Strength. <br className="hidden sm:inline" />
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent">
-              Bulletproof Your Joints.
-            </span>
+          <h1 className="text-5xl sm:text-7xl font-display font-black tracking-tight max-w-4xl leading-[1] mb-8">
+            Build Lasting Strength. <br />
+            <span className="text-accent">Bulletproof Your Joints.</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
-            Forge40 combines interactive AI coaching, progressive training tracks, and restorative mobility templates to bridge the gap between static PDFs and expensive personal trainers. Designed for longevity and sustainable healthspan.
+          <p className="text-xl text-secondary/80 max-w-2xl leading-relaxed mb-12 font-medium">
+            Forge40 combines interactive AI coaching, progressive training tracks, and restorative mobility templates to bridge the gap between static PDFs and expensive personal trainers.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-md mx-auto">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <a 
               href="#quiz-section" 
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 rounded-xl transition-all duration-200 shadow-xl shadow-purple-600/25 hover:shadow-purple-500/35 active:scale-98"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 text-lg font-black text-white bg-accent hover:bg-accent/90 rounded-xl transition-all duration-200 shadow-2xl shadow-accent/40 active:scale-98"
             >
               Start Free Longevity Quiz
-              <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+              <svg className="ml-2 w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </a>
             <a 
               href="#stack" 
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-slate-300 hover:text-white bg-slate-900/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-xl transition-all duration-200"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 text-lg font-black text-white bg-white/10 hover:bg-white/20 border border-white/30 rounded-xl transition-all duration-200 backdrop-blur-sm"
             >
               View Pricing Tiers
             </a>
-          </div>
-
-          {/* Social Proof Bar */}
-          <div className="mt-20 border-t border-slate-900 pt-10">
-            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 mb-6">Built in alignment with principles of</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 sm:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all">
-              <span className="text-slate-400 font-bold tracking-tight text-lg sm:text-xl">🏋️ Progressive Overload</span>
-              <span className="text-slate-400 font-bold tracking-tight text-lg sm:text-xl">🧘 Joint Mobility Resets</span>
-              <span className="text-slate-400 font-bold tracking-tight text-lg sm:text-xl">🥗 Metabolic Optimization</span>
-              <span className="text-slate-400 font-bold tracking-tight text-lg sm:text-xl">🧠 Sustainable Recovery</span>
-            </div>
           </div>
         </div>
       </section>
 
       {/* CORE PILLARS SECTION */}
-      <section id="pillars" className="py-24 bg-slate-950 border-t border-slate-900">
+      <section id="pillars" className="py-24 bg-white border-b border-border-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-purple-500 text-sm font-bold uppercase tracking-wider mb-3">The Forge40 Methodology</h2>
-            <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <h2 className="text-accent text-sm font-black uppercase tracking-[0.2em] mb-4">The Forge40 Methodology</h2>
+            <p className="text-4xl sm:text-5xl font-display font-black text-primary tracking-tight mb-6">
               Designed for Joint Health & Sustainable Strength
             </p>
-            <p className="text-slate-400">
+            <p className="text-neutral-dark/60 text-lg">
               Traditional fitness programs push you to failure. Forge40 builds you up. We specialize in functional vitality for busy lives.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             
             {/* PILLAR 1 */}
-            <div className="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:border-purple-500/50 transition-all duration-300">
-              <div className="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center mb-6 font-black text-xl border border-purple-500/20 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+            <div className="bg-secondary/30 p-10 rounded-3xl border border-border-grid group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+              <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 font-black text-2xl shadow-lg shadow-primary/20">
                 01
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Sustainable Strength</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-2xl font-display font-black text-primary mb-4 uppercase tracking-tight">Sustainable Strength</h3>
+              <p className="text-neutral-dark/70 leading-relaxed font-medium">
                 Compound movements focused on the major muscle patterns. Re-engineered load dynamics to trigger maximum muscle hypertrophy and bone density stimulus while keeping joints in healthy, low-shear vectors.
               </p>
             </div>
 
             {/* PILLAR 2 */}
-            <div className="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:border-indigo-500/50 transition-all duration-300">
-              <div className="w-12 h-12 bg-indigo-500/10 text-indigo-400 rounded-xl flex items-center justify-center mb-6 font-black text-xl border border-indigo-500/20 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
+            <div className="bg-secondary/30 p-10 rounded-3xl border border-border-grid group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+              <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 font-black text-2xl shadow-lg shadow-primary/20">
                 02
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Joint bulletproofing</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-2xl font-display font-black text-primary mb-4 uppercase tracking-tight">Joint bulletproofing</h3>
+              <p className="text-neutral-dark/70 leading-relaxed font-medium">
                 Daily mobility flows and active joint resets integrated into your dashboard. Improve thoracic extension, restore internal hip rotation, and stabilize the scapula to move pain-free.
               </p>
             </div>
 
             {/* PILLAR 3 */}
-            <div className="bg-slate-900/40 border border-slate-800/80 p-8 rounded-2xl relative overflow-hidden group hover:border-pink-500/50 transition-all duration-300">
-              <div className="w-12 h-12 bg-pink-500/10 text-pink-400 rounded-xl flex items-center justify-center mb-6 font-black text-xl border border-pink-500/20 group-hover:bg-pink-600 group-hover:text-white transition-all duration-300">
+            <div className="bg-secondary/30 p-10 rounded-3xl border border-border-grid group hover:bg-white hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
+              <div className="w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center mb-8 font-black text-2xl shadow-lg shadow-primary/20">
                 03
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Healthspan Habits</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-2xl font-display font-black text-primary mb-4 uppercase tracking-tight">Healthspan Habits</h3>
+              <p className="text-neutral-dark/70 leading-relaxed font-medium">
                 Coaching goes beyond the gym. Track sleep hygiene, nervous system down-regulation, hydration, and optimize your metabolic health using custom-tailored AI macro and meal planning frameworks.
               </p>
             </div>
@@ -209,203 +195,203 @@ function App() {
         </div>
       </section>
 
-      {/* THREE INTERACTIVE FEATURES: QUIZ, CHAT & PRICING SPLIT */}
-
-      {/* FEATURE 1: INTERACTIVE MOBILITY & LONGEVITY ASSESSMENT QUIZ PREVIEW */}
-      <section id="quiz-section" className="py-24 bg-slate-950/50 border-t border-slate-900 relative">
-        <div className="absolute inset-0 bg-radial-at-t from-purple-900/10 via-transparent to-transparent pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* FEATURE 1: INTERACTIVE MOBILITY & LONGEVITY ASSESSMENT QUIZ */}
+      <section id="quiz-section" className="py-24 bg-neutral-light relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
-          <div className="text-center mb-12">
-            <span className="text-purple-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">Lead Magnet</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-4 mb-4">
-              Get Your Personalized Longevity Score
-            </h2>
-            <p className="text-slate-400 max-w-2xl mx-auto">
-              Answer 3 simple physical markers below to immediately preview your personalized longevity dashboard status and unlock your comprehensive report!
-            </p>
-          </div>
-
-          {/* QUIZ INTERACTIVE BOX */}
-          <div className="bg-gradient-to-b from-slate-900 to-slate-950 border border-slate-800 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-purple-500 via-indigo-500 to-pink-500"></div>
+          <div className="bg-white border border-border-grid rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
             
-            {!quizResultReady ? (
-              <div>
-                {/* Step indicators */}
-                <div className="flex items-center justify-between mb-8">
-                  <span className="text-xs font-semibold text-purple-400 uppercase tracking-wider">Step {quizStep} of 3</span>
-                  <div className="flex gap-1.5">
-                    <div className={`w-8 h-1 rounded-full transition-all duration-300 ${quizStep >= 1 ? 'bg-purple-500' : 'bg-slate-800'}`}></div>
-                    <div className={`w-8 h-1 rounded-full transition-all duration-300 ${quizStep >= 2 ? 'bg-purple-500' : 'bg-slate-800'}`}></div>
-                    <div className={`w-8 h-1 rounded-full transition-all duration-300 ${quizStep >= 3 ? 'bg-purple-500' : 'bg-slate-800'}`}></div>
-                  </div>
-                </div>
-
-                {/* Question 1: Age */}
-                {quizStep === 1 && (
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">What is your current age category?</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {['Under 40', '40 to 55', '56 and over'].map((option) => (
-                        <button
-                          key={option}
-                          onClick={() => {
-                            setQuizAnswers(prev => ({ ...prev, age: option }))
-                            setQuizStep(2)
-                          }}
-                          className={`p-4 rounded-xl border text-left font-medium transition-all duration-200 active:scale-98 ${
-                            quizAnswers.age === option 
-                              ? 'bg-purple-600/20 border-purple-500 text-white shadow-lg shadow-purple-500/10' 
-                              : 'bg-slate-900 border-slate-800 hover:border-slate-700 hover:bg-slate-900/60 text-slate-300'
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Question 2: Primary Goal */}
-                {quizStep === 2 && (
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">What is your primary training longevity goal?</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {['Restore Joint Mobility', 'Build Dense, Hard Muscle', 'Fat Loss & High Energy'].map((option) => (
-                        <button
-                          key={option}
-                          onClick={() => {
-                            setQuizAnswers(prev => ({ ...prev, goal: option }))
-                            setQuizStep(3)
-                          }}
-                          className={`p-4 rounded-xl border text-left font-medium transition-all duration-200 active:scale-98 ${
-                            quizAnswers.goal === option 
-                              ? 'bg-purple-600/20 border-purple-500 text-white shadow-lg shadow-purple-500/10' 
-                              : 'bg-slate-900 border-slate-800 hover:border-slate-700 hover:bg-slate-900/60 text-slate-300'
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <button 
-                      onClick={() => setQuizStep(1)} 
-                      className="mt-6 text-sm text-slate-500 hover:text-slate-300 underline underline-offset-4"
-                    >
-                      Back
-                    </button>
-                  </div>
-                )}
-
-                {/* Question 3: Pain Points */}
-                {quizStep === 3 && (
-                  <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">Do you currently suffer from chronic joint stiffness or nagging pain?</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      {['Yes, shoulders/knees/lower-back', 'Mild/occasional stiffness', 'No pain, I feel great'].map((option) => (
-                        <button
-                          key={option}
-                          onClick={() => {
-                            const updated = { ...quizAnswers, pain: option }
-                            setQuizAnswers(updated)
-                            setQuizResultReady(true)
-                          }}
-                          className={`p-4 rounded-xl border text-left font-medium transition-all duration-200 active:scale-98 ${
-                            quizAnswers.pain === option 
-                              ? 'bg-purple-600/20 border-purple-500 text-white shadow-lg shadow-purple-500/10' 
-                              : 'bg-slate-900 border-slate-800 hover:border-slate-700 hover:bg-slate-900/60 text-slate-300'
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                    <button 
-                      onClick={() => setQuizStep(2)} 
-                      className="mt-6 text-sm text-slate-500 hover:text-slate-300 underline underline-offset-4"
-                    >
-                      Back
-                    </button>
-                  </div>
-                )}
+            {/* Left side: visual/copy */}
+            <div className="md:w-2/5 bg-primary p-10 text-white relative">
+              <div className="absolute inset-0 opacity-10 mix-blend-overlay">
+                <img src="/assets/quiz-header.png" alt="Abstract Background" className="w-full h-full object-cover" />
               </div>
-            ) : (
-              /* QUIZ SUCCESS STATE */
-              <div className="text-center py-4">
-                <div className="w-16 h-16 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6 text-3xl">
-                  ✓
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div>
+                  <span className="inline-block px-3 py-1 bg-accent rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Assessment</span>
+                  <h2 className="text-4xl font-display font-black leading-tight mb-6">
+                    What's Your <br />
+                    <span className="text-accent">Longevity Score?</span>
+                  </h2>
+                  <p className="text-secondary/60 font-medium">
+                    Answer 3 quick questions to unlock your personalized joint health report and baseline strength recommendations.
+                  </p>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">Assessment baseline calculated!</h3>
-                <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto mb-8">
-                  Based on your age <span className="text-purple-400 font-bold">({quizAnswers.age})</span>, primary focus <span className="text-purple-400 font-bold">({quizAnswers.goal})</span>, and pain profile <span className="text-purple-400 font-bold">({quizAnswers.pain})</span>, you qualify for a custom baseline longevity dashboard.
-                </p>
-
-                <div className="bg-slate-950 p-6 rounded-2xl border border-slate-850 max-w-xl mx-auto mb-8 text-left">
-                  <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-900">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Your Longevity Score Projection:</span>
-                    <span className="text-emerald-400 font-black text-lg">78 / 100</span>
+                <div className="mt-12 flex items-center gap-4">
+                  <div className="flex -space-x-3">
+                    {[1,2,3,4].map(i => (
+                      <div key={i} className="w-10 h-10 rounded-full border-2 border-primary bg-secondary flex items-center justify-center text-[10px] font-bold text-primary">U{i}</div>
+                    ))}
                   </div>
-                  <ul className="space-y-2.5 text-xs text-slate-400">
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald-500 font-bold">▶</span> Joint Vector recommendation: Priority shoulder external rotation flows and hip flexor decompression templates.
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-emerald-500 font-bold">▶</span> Strength programming path: Kettlebell/dumbbell dynamic stabilization before full progressive barbell overload.
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                  <a 
-                    href="#pricing"
-                    className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl transition-all duration-200 active:scale-98"
-                  >
-                    Unlock Full Report (Buy Membership)
-                  </a>
-                  <button 
-                    onClick={resetQuiz}
-                    className="w-full sm:w-auto text-sm text-slate-400 hover:text-slate-200 py-3 underline underline-offset-4"
-                  >
-                    Retake Teaser Quiz
-                  </button>
+                  <p className="text-xs font-bold text-secondary/40 italic">Joined by 12,000+ members</p>
                 </div>
               </div>
-            )}
+            </div>
 
+            {/* Right side: Quiz logic */}
+            <div className="md:w-3/5 p-10 sm:p-14 relative">
+              
+              {!quizResultReady ? (
+                <div>
+                  {/* Step indicators */}
+                  <div className="flex items-center gap-4 mb-12">
+                    <div className="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
+                      <div className="h-full bg-accent transition-all duration-500" style={{ width: `${(quizStep/3)*100}%` }}></div>
+                    </div>
+                    <span className="text-xs font-black text-primary/40 uppercase tracking-tighter">Step {quizStep}/3</span>
+                  </div>
+
+                  {/* Question 1: Age */}
+                  {quizStep === 1 && (
+                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                      <h3 className="text-2xl font-display font-black text-primary mb-8 tracking-tight">What is your current age category?</h3>
+                      <div className="space-y-4">
+                        {['Under 40', '40 to 55', '56 and over'].map((option) => (
+                          <button
+                            key={option}
+                            onClick={() => {
+                              setQuizAnswers(prev => ({ ...prev, age: option }))
+                              setQuizStep(2)
+                            }}
+                            className="w-full p-5 rounded-2xl border-2 border-border-grid text-left font-bold text-primary hover:border-accent hover:bg-light-accent transition-all duration-200 group flex items-center justify-between"
+                          >
+                            <span>{option}</span>
+                            <span className="w-6 h-6 rounded-full border-2 border-border-grid group-hover:border-accent flex items-center justify-center text-accent">→</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Question 2: Primary Goal */}
+                  {quizStep === 2 && (
+                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                      <h3 className="text-2xl font-display font-black text-primary mb-8 tracking-tight">What is your primary training goal?</h3>
+                      <div className="space-y-4">
+                        {['Restore Joint Mobility', 'Build Dense, Hard Muscle', 'Fat Loss & High Energy'].map((option) => (
+                          <button
+                            key={option}
+                            onClick={() => {
+                              setQuizAnswers(prev => ({ ...prev, goal: option }))
+                              setQuizStep(3)
+                            }}
+                            className="w-full p-5 rounded-2xl border-2 border-border-grid text-left font-bold text-primary hover:border-accent hover:bg-light-accent transition-all duration-200 group flex items-center justify-between"
+                          >
+                            <span>{option}</span>
+                            <span className="w-6 h-6 rounded-full border-2 border-border-grid group-hover:border-accent flex items-center justify-center text-accent">→</span>
+                          </button>
+                        ))}
+                      </div>
+                      <button 
+                        onClick={() => setQuizStep(1)} 
+                        className="mt-8 text-xs font-black text-primary/40 hover:text-accent uppercase tracking-widest flex items-center gap-2 transition-colors"
+                      >
+                        ← Back to start
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Question 3: Pain Points */}
+                  {quizStep === 3 && (
+                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
+                      <h3 className="text-2xl font-display font-black text-primary mb-8 tracking-tight">Do you suffer from joint stiffness?</h3>
+                      <div className="space-y-4">
+                        {['Yes, frequent pain/stiffness', 'Mild/occasional stiffness', 'No pain, I feel great'].map((option) => (
+                          <button
+                            key={option}
+                            onClick={() => {
+                              const updated = { ...quizAnswers, pain: option }
+                              setQuizAnswers(updated)
+                              setQuizResultReady(true)
+                            }}
+                            className="w-full p-5 rounded-2xl border-2 border-border-grid text-left font-bold text-primary hover:border-accent hover:bg-light-accent transition-all duration-200 group flex items-center justify-between"
+                          >
+                            <span>{option}</span>
+                            <span className="w-6 h-6 rounded-full border-2 border-border-grid group-hover:border-accent flex items-center justify-center text-accent font-black">✓</span>
+                          </button>
+                        ))}
+                      </div>
+                      <button 
+                        onClick={() => setQuizStep(2)} 
+                        className="mt-8 text-xs font-black text-primary/40 hover:text-accent uppercase tracking-widest flex items-center gap-2 transition-colors"
+                      >
+                        ← Previous step
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                /* QUIZ SUCCESS STATE */
+                <div className="text-center py-4 animate-in zoom-in-95 duration-500">
+                  <div className="w-20 h-20 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-8 text-4xl font-black">
+                    ✓
+                  </div>
+                  <h3 className="text-3xl font-display font-black text-primary mb-4 tracking-tight">Score Projected!</h3>
+                  <p className="text-neutral-dark/60 font-medium mb-10 leading-relaxed">
+                    Based on your profile, your longevity index is <span className="text-primary font-black">78/100</span>. We have generated a custom blueprint for your <span className="text-accent font-bold">{quizAnswers.goal}</span> goals.
+                  </p>
+
+                  <div className="bg-secondary/40 p-8 rounded-3xl border border-border-grid text-left mb-10">
+                    <h4 className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-4">Initial Recommendations:</h4>
+                    <ul className="space-y-4 text-sm font-bold text-neutral-dark/70">
+                      <li className="flex items-start gap-3">
+                        <span className="text-accent">▶</span> Priority: Shoulder external rotation & Hip flexor decompression.
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="text-accent">▶</span> Programming: Low-shear kettlebell stabilization focus for 4 weeks.
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a 
+                      href="#pricing"
+                      className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-accent hover:bg-accent/90 text-white font-black rounded-xl transition-all duration-200 shadow-xl shadow-accent/20 active:scale-98"
+                    >
+                      Unlock Full Report
+                    </a>
+                    <button 
+                      onClick={resetQuiz}
+                      className="w-full sm:w-auto text-xs font-black text-primary/40 hover:text-primary uppercase tracking-widest py-3 transition-colors"
+                    >
+                      Retake Quiz
+                    </button>
+                  </div>
+                </div>
+              )}
+
+            </div>
           </div>
 
         </div>
       </section>
 
       {/* FEATURE 2: INTERACTIVE AI COACH DEMO */}
-      <section id="demo-section" className="py-24 bg-slate-950/30 border-t border-slate-900">
+      <section id="demo-section" className="py-24 bg-white border-y border-border-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
             
             {/* Left Column: Context & Copy */}
             <div className="lg:col-span-5">
-              <span className="text-purple-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20">Interactive Chat Demo</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-6 mb-6">
-                Meet the Forge40 AI Longevity Coach
+              <span className="text-accent text-xs font-black uppercase tracking-[0.2em] px-3 py-1 rounded-full bg-accent/10 border border-accent/20">AI Co-Pilot</span>
+              <h2 className="text-4xl sm:text-5xl font-display font-black text-primary tracking-tight mt-6 mb-8 leading-tight">
+                Your 24/7 Longevity Expert
               </h2>
-              <p className="text-slate-400 leading-relaxed mb-6">
-                Unlimited access to our web chatbot is a core pillar of the **Forge40 Membership**. Trained on certified exercise physiology, sports medicine, and healthspan protocols, the AI Coach operates 24/7.
-              </p>
-              <p className="text-slate-400 leading-relaxed mb-8">
-                Go ahead and simulate a conversation! Click one of our highly requested member questions to see exactly how your coach answers.
+              <p className="text-neutral-dark/60 text-lg font-medium leading-relaxed mb-10">
+                The Forge40 AI Coach is trained on thousands of pages of exercise physiology and longevity protocols. It's built for the mature body that needs smart, joint-friendly adjustments.
               </p>
 
-              <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Select a prompt to ask:</span>
+              <div className="space-y-4">
+                <span className="text-xs font-black uppercase tracking-widest text-primary/30">Ask the Coach:</span>
                 {demoQuestions.map((qObj, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleDemoQuestionClick(qObj)}
                     disabled={isTyping}
-                    className="w-full text-left p-3.5 text-xs font-medium text-slate-300 hover:text-white bg-slate-900 hover:bg-slate-850 border border-slate-800 hover:border-slate-750 rounded-xl transition-all active:scale-99 disabled:opacity-50 block"
+                    className="w-full text-left p-5 text-sm font-bold text-primary bg-secondary/30 hover:bg-secondary/50 border-2 border-transparent hover:border-accent/20 rounded-2xl transition-all active:scale-99 disabled:opacity-50 flex items-center justify-between group"
                   >
-                    "{qObj.q}"
+                    <span>"{qObj.q}"</span>
+                    <span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </button>
                 ))}
               </div>
@@ -413,37 +399,40 @@ function App() {
 
             {/* Right Column: Interactive Chat Interface */}
             <div className="lg:col-span-7">
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[480px]">
+              <div className="bg-primary rounded-[2.5rem] shadow-[0_35px_60px_-15px_rgba(19,46,39,0.3)] overflow-hidden flex flex-col h-[600px] border-8 border-primary">
                 
                 {/* Chat Header */}
-                <div className="bg-slate-950 border-b border-slate-850 p-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center font-black text-white text-xs">
+                <div className="bg-primary p-6 flex items-center justify-between border-b border-white/5">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center font-black text-white text-sm shadow-lg shadow-accent/20">
                       FC
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-white">Forge40 AI Coach</h4>
-                      <span className="text-xs text-emerald-400 flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                        Online now
+                      <h4 className="text-lg font-display font-black text-white leading-none mb-1">AI Coach</h4>
+                      <span className="text-[10px] text-emerald-400 font-black uppercase tracking-widest flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Active Intelligence
                       </span>
                     </div>
                   </div>
-                  <span className="text-xs text-slate-500">Demo Mode</span>
+                  <div className="flex gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-white/20"></div>
+                    <div className="w-2 h-2 rounded-full bg-white/20"></div>
+                  </div>
                 </div>
 
                 {/* Chat Messages */}
-                <div className="flex-1 p-4 overflow-y-auto space-y-4 bg-slate-950/20">
+                <div className="flex-1 p-6 overflow-y-auto space-y-6 bg-secondary/5">
                   {chatHistory.map((msg, idx) => (
                     <div
                       key={idx}
                       className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                       <div
-                        className={`max-w-[85%] rounded-2xl p-4 text-xs sm:text-sm leading-relaxed ${
+                        className={`max-w-[85%] rounded-[1.5rem] px-6 py-4 text-sm font-medium leading-relaxed shadow-sm ${
                           msg.sender === 'user'
-                            ? 'bg-purple-600 text-white rounded-br-none'
-                            : 'bg-slate-900 text-slate-200 border border-slate-800 rounded-bl-none'
+                            ? 'bg-accent text-white rounded-br-none'
+                            : 'bg-white text-primary rounded-bl-none'
                         }`}
                       >
                         {msg.text}
@@ -454,25 +443,22 @@ function App() {
                   {/* Typing Indicator */}
                   {isTyping && (
                     <div className="flex justify-start">
-                      <div className="bg-slate-900 border border-slate-800 rounded-2xl rounded-bl-none p-4 max-w-[85%] flex items-center gap-1.5">
-                        <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-bounce"></div>
-                        <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-bounce delay-100"></div>
-                        <div className="w-1.5 h-1.5 bg-purple-500 rounded-full animate-bounce delay-200"></div>
+                      <div className="bg-white rounded-[1.5rem] rounded-bl-none px-6 py-4 max-w-[85%] flex items-center gap-1.5 shadow-sm">
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full animate-bounce"></div>
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full animate-bounce delay-100"></div>
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full animate-bounce delay-200"></div>
                       </div>
                     </div>
                   )}
                 </div>
 
                 {/* Chat Footer */}
-                <div className="p-3 bg-slate-950 border-t border-slate-850 flex items-center gap-2">
-                  <input
-                    type="text"
-                    placeholder="Type to ask (use prompt selection in demo)..."
-                    disabled
-                    className="flex-1 bg-slate-900 border border-slate-800 text-xs sm:text-sm rounded-xl px-4 py-3 text-slate-500 outline-none"
-                  />
-                  <button className="px-4 py-3 bg-purple-600 rounded-xl text-white font-bold text-xs cursor-not-allowed opacity-50">
-                    Send
+                <div className="p-6 bg-white flex items-center gap-3">
+                  <div className="flex-1 bg-secondary/40 rounded-2xl px-5 py-4 text-sm font-bold text-primary/40">
+                    Type a question...
+                  </div>
+                  <button className="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white font-black shadow-lg shadow-primary/20 opacity-50 cursor-not-allowed">
+                    ↑
                   </button>
                 </div>
 
@@ -483,221 +469,200 @@ function App() {
         </div>
       </section>
 
-      {/* FOUR-TIER PRODUCT STACK COMPARISON & PRICING */}
-      <section id="pricing" className="py-24 bg-slate-950 border-t border-slate-900 relative">
-        <div className="absolute inset-0 bg-gradient-to-t from-indigo-900/10 via-transparent to-transparent pointer-events-none"></div>
+      {/* THE BLUEPRINT PRODUCT PREVIEW */}
+      <section className="py-24 bg-secondary/20 border-b border-border-grid">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-purple-500 text-sm font-bold uppercase tracking-wider mb-3">Flexible Ecosystem</h2>
-            <p className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-4">
-              The Forge40 Four-Tier Product Stack
-            </p>
-            <p className="text-slate-400">
-              Start with our free lead magnet assessment quiz, buy the one-time blueprint dashboard, sub to the full AI membership, or opt for premium human coaching integration. No matter your stage, we have a perfect tier.
-            </p>
-
-            {/* Toggle Switch */}
-            <div className="inline-flex items-center gap-3 mt-10 bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-full">
-              <span className={`text-xs font-semibold ${!isAnnual ? 'text-white' : 'text-slate-500'}`}>Monthly Billing</span>
-              <button
-                onClick={() => setIsAnnual(!isAnnual)}
-                className="w-11 h-6 bg-purple-600 rounded-full relative transition-all duration-300 outline-none"
-              >
-                <div className={`w-4 h-4 bg-white rounded-full absolute top-1 transition-all duration-300 ${isAnnual ? 'left-6' : 'left-1'}`}></div>
+          <div className="flex flex-col lg:flex-row items-center gap-16">
+            <div className="lg:w-1/2">
+              <img src="/assets/dashboard-preview.png" alt="Forge40 Dashboard Preview" className="w-full h-auto rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.1)] border border-border-grid" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-accent text-xs font-black uppercase tracking-[0.2em] mb-4 block">Best Entry Value</span>
+              <h2 className="text-4xl sm:text-5xl font-display font-black text-primary tracking-tight mb-6">
+                The Forge40 <br />
+                <span className="text-accent">Longevity Dashboard</span>
+              </h2>
+              <p className="text-lg text-neutral-dark/60 font-medium mb-8 leading-relaxed">
+                Our signature $49 one-time product. A complete interactive system in Excel or Notion that tracks your strength, recovery habits, and longevity biomarkers with medical-grade precision.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+                {['Workout Tracker (40+)', 'Recovery Habit Checklist', 'AI Meal Planning Prompts', 'Longevity Biomarker Hub'].map(f => (
+                  <li key={f} className="flex items-center gap-2 font-bold text-primary text-sm">
+                    <span className="text-accent font-black">✓</span> {f}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full sm:w-auto px-10 py-4 bg-primary text-white font-black rounded-xl hover:bg-primary/90 transition-all shadow-xl shadow-primary/20">
+                Get The Blueprint - $49
               </button>
-              <span className={`text-xs font-semibold flex items-center gap-1.5 ${isAnnual ? 'text-white' : 'text-slate-500'}`}>
-                Annual Billing <span className="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] px-1.5 py-0.5 rounded-full">Save ~40%</span>
-              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING TABLE */}
+      <section id="pricing" className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-accent text-sm font-black uppercase tracking-[0.2em] mb-4">Investment in Healthspan</h2>
+            <p className="text-4xl font-display font-black text-primary mb-10">Choose Your Tier</p>
+            
+            {/* Toggle Switch */}
+            <div className="inline-flex items-center gap-4 bg-secondary/50 p-2 rounded-2xl border border-border-grid">
+              <button 
+                onClick={() => setIsAnnual(false)}
+                className={`px-6 py-2 rounded-xl text-xs font-black transition-all ${!isAnnual ? 'bg-white text-primary shadow-sm' : 'text-primary/40'}`}
+              >
+                Monthly
+              </button>
+              <button 
+                onClick={() => setIsAnnual(true)}
+                className={`px-6 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-2 ${isAnnual ? 'bg-white text-primary shadow-sm' : 'text-primary/40'}`}
+              >
+                Annual <span className="text-[10px] bg-emerald-100 text-emerald-600 px-1.5 py-0.5 rounded-md">-40%</span>
+              </button>
             </div>
           </div>
 
           <div id="stack" className="grid grid-cols-1 md:grid-cols-4 gap-8">
             
             {/* TIER 1: LEAD MAGNET */}
-            <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between relative hover:border-slate-700 transition-all duration-200">
+            <div className="bg-white border border-border-grid p-8 rounded-[2rem] flex flex-col justify-between hover:shadow-xl hover:shadow-primary/5 transition-all">
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Tier 01 / Free Lead Magnet</span>
-                <h3 className="text-lg font-bold text-white mt-2 mb-1">Assessment Quiz</h3>
-                <p className="text-slate-400 text-xs mb-6">Longevity & Mobility Assessment Quiz generates your personalized baseline mobility reports.</p>
-                
-                <div className="mb-6">
-                  <span className="text-3xl font-black text-white">$0</span>
-                  <span className="text-xs text-slate-500"> / Free forever</span>
-                </div>
-
-                <ul className="space-y-3 text-xs text-slate-400 border-t border-slate-800/80 pt-6 mb-6">
-                  <li className="flex items-center gap-2">✓ 15-question core assessment</li>
-                  <li className="flex items-center gap-2">✓ Custom mobility baseline index</li>
-                  <li className="flex items-center gap-2">✓ Tailored mobility restriction identification</li>
+                <span className="text-[10px] font-black text-primary/30 uppercase tracking-widest block mb-6">Tier 01 / Free</span>
+                <h3 className="text-xl font-display font-black text-primary mb-2">Assessment Quiz</h3>
+                <p className="text-neutral-dark/50 text-xs font-bold mb-8 leading-relaxed">Personalized baseline mobility reports to find your starting point.</p>
+                <div className="text-4xl font-display font-black text-primary mb-8">$0</div>
+                <ul className="space-y-4 text-xs font-bold text-neutral-dark/70 border-t border-border-grid pt-8 mb-8">
+                  <li>✓ 15-question core assessment</li>
+                  <li>✓ Custom mobility index</li>
+                  <li>✓ Recommendation engine</li>
                 </ul>
               </div>
-              <a href="#quiz-section" className="w-full text-center py-2.5 bg-slate-800 hover:bg-slate-700 font-semibold text-xs text-white rounded-lg transition-colors">
-                Start Assessment Free
+              <a href="#quiz-section" className="w-full text-center py-4 bg-secondary text-primary font-black text-xs rounded-xl hover:bg-border-grid transition-colors">
+                Start Free
               </a>
             </div>
 
             {/* TIER 2: THE BLUEPRINT */}
-            <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between relative hover:border-slate-700 transition-all duration-200">
+            <div className="bg-white border border-border-grid p-8 rounded-[2rem] flex flex-col justify-between hover:shadow-xl hover:shadow-primary/5 transition-all">
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Tier 02 / One-Time Purchase</span>
-                <h3 className="text-lg font-bold text-white mt-2 mb-1">The Blueprint</h3>
-                <p className="text-slate-400 text-xs mb-6">Interactive "Forge40 Longevity Dashboard" spreadsheet/Notion habit tracker and template packs.</p>
-                
-                <div className="mb-6">
-                  <span className="text-3xl font-black text-white">$49</span>
-                  <span className="text-xs text-slate-500"> / One-time buy</span>
-                </div>
-
-                <ul className="space-y-3 text-xs text-slate-400 border-t border-slate-800/80 pt-6 mb-6">
-                  <li className="flex items-center gap-2">✓ Notion Habit Tracking templates</li>
-                  <li className="flex items-center gap-2">✓ Sleep optimization template</li>
-                  <li className="flex items-center gap-2">✓ AI Meal-Planning custom prompts</li>
+                <span className="text-[10px] font-black text-primary/30 uppercase tracking-widest block mb-6">Tier 02 / One-Time</span>
+                <h3 className="text-xl font-display font-black text-primary mb-2">The Blueprint</h3>
+                <p className="text-neutral-dark/50 text-xs font-bold mb-8 leading-relaxed">Interactive "Forge40 Longevity Dashboard" system for Excel or Notion.</p>
+                <div className="text-4xl font-display font-black text-primary mb-8">$49</div>
+                <ul className="space-y-4 text-xs font-bold text-neutral-dark/70 border-t border-border-grid pt-8 mb-8">
+                  <li>✓ Workout Tracker (40+)</li>
+                  <li>✓ Sleep Optimization Pack</li>
+                  <li>✓ AI Meal-Planning Prompts</li>
                 </ul>
               </div>
-              <button className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 font-semibold text-xs text-white rounded-lg transition-colors">
-                Purchase Blueprint ($49)
+              <button className="w-full py-4 bg-secondary text-primary font-black text-xs rounded-xl hover:bg-border-grid transition-colors">
+                Buy Now
               </button>
             </div>
 
-            {/* TIER 3: MEMBERSHIP (MOST POPULAR / PRIMARY SUB) */}
-            <div className="bg-gradient-to-b from-slate-900 to-indigo-950 border-2 border-purple-500 p-6 rounded-2xl flex flex-col justify-between relative shadow-xl shadow-purple-500/5 hover:-translate-y-1 transition-all duration-300">
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-purple-500 text-white text-[10px] uppercase font-extrabold tracking-wider px-3 py-1 rounded-full shadow-md">
-                Most Popular Sub
+            {/* TIER 3: MEMBERSHIP */}
+            <div className="bg-primary p-8 rounded-[2.5rem] flex flex-col justify-between relative shadow-2xl shadow-primary/20 hover:-translate-y-2 transition-all duration-300">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-accent text-white text-[10px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-lg">
+                Recommended
               </div>
               <div>
-                <span className="text-[10px] uppercase font-bold text-purple-400 tracking-wider">Tier 03 / Recurring Subscription</span>
-                <h3 className="text-lg font-bold text-white mt-2 mb-1">The Membership</h3>
-                <p className="text-slate-400 text-xs mb-6">Unlimited access to the training programs, mobility flows, and our smart AI Coach chatbot.</p>
-                
-                <div className="mb-6">
-                  <span className="text-3xl font-black text-white">{isAnnual ? '$199' : '$29'}</span>
-                  <span className="text-xs text-slate-400">{isAnnual ? ' / year' : ' / month'}</span>
-                  <div className="text-[10px] text-emerald-400 font-semibold mt-1">
-                    {isAnnual ? 'Save $149 over monthly rates' : 'Cancel anytime'}
-                  </div>
+                <span className="text-[10px] font-black text-white/30 uppercase tracking-widest block mb-6">Tier 03 / Membership</span>
+                <h3 className="text-xl font-display font-black text-white mb-2">The Training Club</h3>
+                <p className="text-secondary/40 text-xs font-bold mb-8 leading-relaxed">Full training library and unlimited AI Coach access 24/7.</p>
+                <div className="text-4xl font-display font-black text-white mb-8">
+                  {isAnnual ? '$199' : '$29'}
+                  <span className="text-xs text-white/40 ml-2 font-black">{isAnnual ? '/year' : '/mo'}</span>
                 </div>
-
-                <ul className="space-y-3 text-xs text-slate-300 border-t border-indigo-900 pt-6 mb-6">
-                  <li className="flex items-center gap-2 font-semibold text-purple-300">★ 24/7 Unlimited AI Coach access</li>
-                  <li className="flex items-center gap-2">✓ 12-week progressive strength libraries</li>
-                  <li className="flex items-center gap-2">✓ Kettlebell & Bodyweight tracks</li>
-                  <li className="flex items-center gap-2">✓ Restoratives and daily mobility sets</li>
+                <ul className="space-y-4 text-xs font-bold text-white border-t border-white/5 pt-8 mb-8">
+                  <li className="text-accent font-black underline underline-offset-4 decoration-2">★ 24/7 Unlimited AI Coach</li>
+                  <li>✓ 12-week Progressive Strength</li>
+                  <li>✓ Kettlebell & Bodyweight Tracks</li>
+                  <li>✓ Daily Mobility Reset Flows</li>
                 </ul>
               </div>
-              <button className="w-full py-3 bg-purple-600 hover:bg-purple-500 font-bold text-xs text-white rounded-lg shadow-md shadow-purple-600/20 hover:shadow-purple-500/30 transition-all duration-200">
-                Join the Membership
+              <button className="w-full py-5 bg-accent text-white font-black text-sm rounded-2xl shadow-xl shadow-accent/20 hover:bg-accent/90 transition-all">
+                Join Now
               </button>
             </div>
 
-            {/* TIER 4: HYBRID PREMIUM */}
-            <div className="bg-slate-900/40 border border-slate-800 p-6 rounded-2xl flex flex-col justify-between relative hover:border-slate-700 transition-all duration-200">
+            {/* TIER 4: HYBRID */}
+            <div className="bg-white border border-border-grid p-8 rounded-[2rem] flex flex-col justify-between hover:shadow-xl hover:shadow-primary/5 transition-all">
               <div>
-                <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Tier 04 / Premium High-Ticket</span>
-                <h3 className="text-lg font-bold text-white mt-2 mb-1">Hybrid Coaching</h3>
-                <p className="text-slate-400 text-xs mb-6">Combine the digital power of the AI Coach with weekly certified human coach feedback and form reviews.</p>
-                
-                <div className="mb-6">
-                  <span className="text-3xl font-black text-white">$149</span>
-                  <span className="text-xs text-slate-500"> / month</span>
-                </div>
-
-                <ul className="space-y-3 text-xs text-slate-400 border-t border-slate-800/80 pt-6 mb-6">
-                  <li className="flex items-center gap-2">✓ Weekly AI-driven check-ins</li>
-                  <li className="flex items-center gap-2">✓ Monthly certified human coach consultation</li>
-                  <li className="flex items-center gap-2">✓ Video form reviews & adjustments</li>
-                  <li className="flex items-center gap-2">✓ Includes full Tier 03 Membership</li>
+                <span className="text-[10px] font-black text-primary/30 uppercase tracking-widest block mb-6">Tier 04 / Premium</span>
+                <h3 className="text-xl font-display font-black text-primary mb-2">Hybrid Coaching</h3>
+                <p className="text-neutral-dark/50 text-xs font-bold mb-8 leading-relaxed">The ultimate combination of AI speed and certified human oversight.</p>
+                <div className="text-4xl font-display font-black text-primary mb-8">$149<span className="text-xs text-primary/40 ml-1 font-black">/mo</span></div>
+                <ul className="space-y-4 text-xs font-bold text-neutral-dark/70 border-t border-border-grid pt-8 mb-8">
+                  <li>✓ Weekly AI-driven check-ins</li>
+                  <li>✓ Monthly human form reviews</li>
+                  <li>✓ Includes all Membership perks</li>
                 </ul>
               </div>
-              <button className="w-full py-2.5 bg-slate-800 hover:bg-slate-700 font-semibold text-xs text-white rounded-lg transition-colors">
-                Apply for Hybrid Coaching
+              <button className="w-full py-4 bg-secondary text-primary font-black text-xs rounded-xl hover:bg-border-grid transition-colors">
+                Apply Now
               </button>
             </div>
 
           </div>
-        </div>
-      </section>
-
-      {/* CORE BENEFITS ACCORDION FAQ */}
-      <section className="py-24 bg-slate-950 border-t border-slate-900">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-16">
-            <h2 className="text-purple-500 text-sm font-bold uppercase tracking-wider mb-3">Frequently Asked Questions</h2>
-            <p className="text-3xl font-extrabold text-white tracking-tight">
-              Got Questions? We’ve Got Answers
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div 
-                key={idx} 
-                className="bg-slate-900 border border-slate-800/80 rounded-2xl overflow-hidden transition-colors"
-              >
-                <button
-                  onClick={() => toggleFaq(idx)}
-                  className="w-full flex justify-between items-center p-6 text-left text-sm sm:text-base font-bold text-white hover:text-purple-400 transition-colors focus:outline-none"
-                >
-                  <span>{faq.q}</span>
-                  <span className="text-purple-500 ml-4">
-                    {openFaq === idx ? '−' : '+'}
-                  </span>
-                </button>
-                
-                {openFaq === idx && (
-                  <div className="px-6 pb-6 text-xs sm:text-sm text-slate-400 leading-relaxed border-t border-slate-850 pt-4 bg-slate-950/20">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* OPT-IN NEWSLETTER BAR */}
-      <section className="py-16 bg-gradient-to-r from-purple-950/40 via-slate-950 to-indigo-950/40 border-t border-slate-900 text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h3 className="text-2xl sm:text-3xl font-black text-white mb-3">Optimize Your Healthspan Today</h3>
-          <p className="text-slate-400 text-xs sm:text-sm max-w-lg mx-auto mb-8">
-            Join 12,000+ active adults receiving our free weekly "Forge40 Longevity Blueprint" newsletter packed with 5-minute mobility resets and smart nutrition protocols.
-          </p>
-
-          <form onSubmit={(e) => { e.preventDefault(); alert("Welcome to Forge40! Check your inbox soon.") }} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input 
-              type="email" 
-              required
-              placeholder="Enter your email address" 
-              className="flex-1 bg-slate-900 border border-slate-800 px-4 py-3 rounded-xl text-sm text-white placeholder-slate-500 focus:border-purple-500 outline-none transition-colors"
-            />
-            <button 
-              type="submit"
-              className="bg-purple-600 hover:bg-purple-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all active:scale-97"
-            >
-              Get Free Mobility Resets
-            </button>
-          </form>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-xs text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-purple-600 rounded flex items-center justify-center font-bold text-white text-xs">F</div>
-            <span className="font-extrabold text-white text-sm tracking-tight">FORGE<span className="text-purple-500">40</span></span>
+      <footer className="bg-primary py-20 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-20 border-b border-white/5 pb-20">
+            <div className="max-w-sm">
+              <div className="flex items-center gap-3 mb-6">
+                <img src="/assets/logo.png" alt="Forge40 Logo" className="h-8 w-auto brightness-0 invert" />
+                <span className="font-display font-black text-2xl tracking-tighter">FORGE<span className="text-accent">40</span></span>
+              </div>
+              <p className="text-secondary/40 text-sm font-bold leading-relaxed mb-8">
+                The science of strength and the art of longevity. We help the high-performing professional stay strong, mobile, and injury-free for the long game.
+              </p>
+              <div className="flex gap-4">
+                {[1,2,3].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors cursor-pointer"></div>
+                ))}
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 sm:gap-24">
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-widest mb-6 text-accent">Company</h4>
+                <ul className="space-y-4 text-sm font-bold text-secondary/60">
+                  <li><a href="#" className="hover:text-white transition-colors">Our Story</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Methodology</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-widest mb-6 text-accent">Products</h4>
+                <ul className="space-y-4 text-sm font-bold text-secondary/60">
+                  <li><a href="#" className="hover:text-white transition-colors">The Blueprint</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Training Club</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Hybrid Coaching</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-xs font-black uppercase tracking-widest mb-6 text-accent">Support</h4>
+                <ul className="space-y-4 text-sm font-bold text-secondary/60">
+                  <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
-
-          <div className="flex gap-6 text-slate-400">
-            <a href="#pillars" className="hover:text-purple-400 transition-colors">Our Pillars</a>
-            <a href="#stack" className="hover:text-purple-400 transition-colors">Products</a>
-            <a href="#quiz-section" className="hover:text-purple-400 transition-colors">Mobility Quiz</a>
-            <a href="#pricing" className="hover:text-purple-400 transition-colors">Pricing</a>
+          
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-6 text-[10px] font-black uppercase tracking-[0.2em] text-white/20">
+            <p>© 2026 FORGE40 STRENGTH & LONGEVITY. ALL RIGHTS RESERVED.</p>
+            <div className="flex gap-8">
+              <span>DESIGNED BY FORGE40 STUDIO</span>
+              <span>POWERED BY AI COACH v2.0</span>
+            </div>
           </div>
-
-          <p>© 2026 Forge40 Strength & Longevity System. All rights reserved.</p>
         </div>
       </footer>
 
