@@ -1,51 +1,87 @@
-# Forge40 - Strength & Longevity Coaching for 40+
+# Forge40 Coaching & Longevity Web Application
 
-Welcome to the official repository for **Forge40**, an AI-assisted strength and longevity coaching system designed for busy adults aged 40+ who want to build sustainable strength, prevent injury, and optimize their healthspan. 
+This repository contains the complete scaffolding and full high-converting landing page for **Forge40**—an AI-assisted strength and longevity coaching system designed for busy adults aged 40+ who want to build sustainable strength, prevent injury, and optimize their healthspan.
 
-This repository acts as the core development environment for our web platform, user dashboard, and baseline reporting engine.
+## Directory Structure
 
----
+```
+/code
+  ├── README.md             # This document
+  ├── package.json          # Root orchestration package.json
+  ├── frontend/             # Vite + React + Tailwind CSS v4 frontend
+  │     ├── dist/           # Built static production-ready website assets
+  │     ├── src/            # React source code components
+  │     │     ├── App.jsx   # Beautiful, interactive responsive landing page
+  │     │     ├── main.jsx  # Frontend entry point
+  │     │     └── index.css # Tailwind directive import
+  │     ├── index.html      # Main HTML layout
+  │     └── vite.config.js  # Vite config using @tailwindcss/vite plugin
+  └── backend/              # Express + Node.js + SQLite local backend
+        ├── server.js       # Express server hosting port 3000, serving /frontend/dist
+        ├── database.sqlite # Local SQLite database storage
+        └── package.json    # Backend configuration & script definitions
+```
 
-## 🚀 Value Proposition
-Forge40 bridges the gap between static PDFs and expensive personal trainers. We combine interactive AI coaching with tailored workout libraries, mobility templates, and habit tracking, specifically optimized for the physiological needs of adults aged 40–60 (prioritizing joint health, sarcopenia prevention, and metabolic vitality).
+## Stack Details
 
-## 📊 Product Ecosystem & Revenue Model
-Forge40 is structured as a high-converting, tiered stack:
-1.  **Free Lead Magnet:** Longevity & Mobility Assessment Quiz (generates personalized baseline reports).
-2.  **The Blueprint ($49, One-Time):** Interactive "Forge40 Longevity Dashboard" (Notion/Google Sheets habit tracker, sleep optimization templates, and customized AI meal-planning prompts).
-3.  **The Membership ($29/month or $199/year):** Full library access (12-week progressive strength programs, kettlebell/bodyweight tracks, mobility routines, and unlimited access to the **Forge40 AI Coach** web chatbot).
-4.  **Hybrid Coaching ($149/month):** Premium tier offering weekly AI-driven check-ins backed by monthly certified human coach form reviews and video consultations.
+1. **Frontend:**
+   - **Vite + React:** Extremely fast, lightweight, and memory-efficient frontend bundler.
+   - **Tailwind CSS v4:** Modern CSS framework integrated natively into Vite using the new `@tailwindcss/vite` compiler plugin, requiring no config files and yielding incredibly tiny CSS bundles.
+   - **Interactive State Features:**
+     - *Interactive Assessment Teaser Quiz:* A 3-step physical scoring widget that drives users to complete their longevity analysis, prompting paid actions.
+     - *Forge40 AI Coach Chat Demo:* A real-time conversational simulation showing off the unlimited AI chatbot included in the Membership tier.
+     - *FAQ Accordion:* Expands and collapses top user objections to increase engagement.
+     - *Pricing billing switcher:* Easily alternates between monthly ($29) and annual ($199) subscription terms with clear discount tracking.
 
----
+2. **Backend:**
+   - **Node/Express:** Serve frontend static files from `/frontend/dist` and proxy all client routes securely.
+   - **SQLite:** A local, fast, file-based database `/backend/database.sqlite` containing:
+     - `newsletter_subscribers` - capturing high-intent email leads.
+     - `assessment_completions` - records longevity markers and scores for analytics.
 
-## 🎨 Brand Style Guide & Identity
-The Forge40 visual brand is designed around a **modern athletic/medical longevity style**: dark slate green base, clean geometric typography, and vibrant coral accents.
+## Getting Started
 
-*   **Primary (Dark Slate Green):** `#132E27` (Trust, scientific depth, medical-grade health).
-*   **Secondary (Muted Sage Green):** `#EBF1EE` (Clean card backgrounds, borders, and highlights).
-*   **Accent (Vibrant Coral/Sunset Orange):** `#FF5A36` (Energy, strength, "forged" vitality).
-*   **Typography:** Bold geometric Sans-Serif (e.g., `Montserrat`, `Archivo`, or `Inter` headings) paired with highly readable body text (`Inter` or `Roboto`).
+### Prerequisites
 
-For detailed implementation instructions, see **[BRANDING.md](BRANDING.md)** in this repository or in the shared team directory `/home/team/shared/BRANDING.md`.
+- Node.js (v18 or higher)
+- npm (v9 or higher)
 
----
+### Installation & Build
 
-## 📁 Repository Structure
-*   `templates/Forge40_Longevity_Dashboard.xlsx`: The core interactive $49 Blueprint product. This is a highly styled, pre-formulated Excel sheet that clients can import with 1-click into Google Sheets or Excel to track their workouts, log daily recovery habits, and copy advanced meal-prep AI prompts.
-*   `BRANDING.md`: Extensive branding guidelines, asset directory, and developer integration steps.
-*   `assets/`: (Mocked in the shared folder `/home/team/shared/assets/`) contains generated high-resolution icons, logos, hero banners, and PDF baseline report headers.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sacredsound/Forge40.git
+   cd Forge40
+   ```
 
----
+2. **Install frontend dependencies and build:**
+   ```bash
+   cd frontend
+   npm install
+   npm run build
+   ```
 
-## 🔧 Developer Integration Checklist
-For the web developer (`agent-developer`), please ensure the following when implementing the landing page, quiz flow, and checkout redirects:
-1.  **Port binding:** Set up the main production server to serve on **port 3000** bound publicly to all interfaces.
-2.  **Asset loading:** Embed branding files directly from the shared assets library:
-    *   **Logo:** `logo.png`
-    *   **Main Hero Image:** `hero-banner.png`
-    *   **Blueprint Product Preview:** `dashboard-preview.png`
-    *   **Quiz Baseliner Header:** `quiz-header.png`
-3.  **Purchase Redirection:** Ensure that upon successful purchase of "The Blueprint", the server redirects the user to download `Forge40_Longevity_Dashboard.xlsx` instantly.
+3. **Install backend dependencies:**
+   ```bash
+   cd ../backend
+   npm install
+   ```
 
----
-*Created and maintained by the Forge40 Team.*
+### Running the App
+
+To run the web application in production mode:
+```bash
+cd backend
+npm start
+```
+The application will start listening on port `3000` bound to `0.0.0.0`, making it available publicly at the team's public URL!
+
+For local background execution (to persist after exiting terminal):
+```bash
+nohup npm start > /tmp/forge40-backend.log 2>&1 &
+```
+You can view active connection states using:
+```bash
+ss -Htln | grep :3000
+```
+And check server console logs at `/tmp/forge40-backend.log`.
