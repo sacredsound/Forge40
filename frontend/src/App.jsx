@@ -1,17 +1,12 @@
 import { useState } from 'react'
+import AssessmentQuiz from './components/AssessmentQuiz'
 
 function App() {
   // Billing cycle toggle: false = Monthly ($29/mo), true = Annual ($199/yr - save 40%)
   const [isAnnual, setIsAnnual] = useState(false)
 
   // Interactive Quiz State
-  const [quizStep, setQuizStep] = useState(1)
-  const [quizAnswers, setQuizAnswers] = useState({
-    age: '',
-    goal: '',
-    pain: ''
-  })
-  const [quizResultReady, setQuizResultReady] = useState(false)
+  // Moved to AssessmentQuiz component
 
   // AI Coach Demo State
   const [chatHistory, setChatHistory] = useState([
@@ -36,12 +31,6 @@ function App() {
       setIsTyping(false)
       setChatHistory(prev => [...prev, { sender: 'coach', text: questionObj.a }])
     }, 1200)
-  }
-
-  const resetQuiz = () => {
-    setQuizStep(1)
-    setQuizAnswers({ age: '', goal: '', pain: '' })
-    setQuizResultReady(false)
   }
 
   // FAQ Accordion State
@@ -198,171 +187,7 @@ function App() {
       {/* FEATURE 1: INTERACTIVE MOBILITY & LONGEVITY ASSESSMENT QUIZ */}
       <section id="quiz-section" className="py-24 bg-neutral-light relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
-          <div className="bg-white border border-border-grid rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row">
-            
-            {/* Left side: visual/copy */}
-            <div className="md:w-2/5 bg-primary p-10 text-white relative">
-              <div className="absolute inset-0 opacity-10 mix-blend-overlay">
-                <img src="/assets/quiz-header.png" alt="Abstract Background" className="w-full h-full object-cover" />
-              </div>
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div>
-                  <span className="inline-block px-3 py-1 bg-accent rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Assessment</span>
-                  <h2 className="text-4xl font-display font-black leading-tight mb-6">
-                    What's Your <br />
-                    <span className="text-accent">Longevity Score?</span>
-                  </h2>
-                  <p className="text-secondary/60 font-medium">
-                    Answer 3 quick questions to unlock your personalized joint health report and baseline strength recommendations.
-                  </p>
-                </div>
-                <div className="mt-12 flex items-center gap-4">
-                  <div className="flex -space-x-3">
-                    {[1,2,3,4].map(i => (
-                      <div key={i} className="w-10 h-10 rounded-full border-2 border-primary bg-secondary flex items-center justify-center text-[10px] font-bold text-primary">U{i}</div>
-                    ))}
-                  </div>
-                  <p className="text-xs font-bold text-secondary/40 italic">Joined by 12,000+ members</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right side: Quiz logic */}
-            <div className="md:w-3/5 p-10 sm:p-14 relative">
-              
-              {!quizResultReady ? (
-                <div>
-                  {/* Step indicators */}
-                  <div className="flex items-center gap-4 mb-12">
-                    <div className="flex-1 h-2 bg-secondary rounded-full overflow-hidden">
-                      <div className="h-full bg-accent transition-all duration-500" style={{ width: `${(quizStep/3)*100}%` }}></div>
-                    </div>
-                    <span className="text-xs font-black text-primary/40 uppercase tracking-tighter">Step {quizStep}/3</span>
-                  </div>
-
-                  {/* Question 1: Age */}
-                  {quizStep === 1 && (
-                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                      <h3 className="text-2xl font-display font-black text-primary mb-8 tracking-tight">What is your current age category?</h3>
-                      <div className="space-y-4">
-                        {['Under 40', '40 to 55', '56 and over'].map((option) => (
-                          <button
-                            key={option}
-                            onClick={() => {
-                              setQuizAnswers(prev => ({ ...prev, age: option }))
-                              setQuizStep(2)
-                            }}
-                            className="w-full p-5 rounded-2xl border-2 border-border-grid text-left font-bold text-primary hover:border-accent hover:bg-light-accent transition-all duration-200 group flex items-center justify-between"
-                          >
-                            <span>{option}</span>
-                            <span className="w-6 h-6 rounded-full border-2 border-border-grid group-hover:border-accent flex items-center justify-center text-accent">→</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Question 2: Primary Goal */}
-                  {quizStep === 2 && (
-                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                      <h3 className="text-2xl font-display font-black text-primary mb-8 tracking-tight">What is your primary training goal?</h3>
-                      <div className="space-y-4">
-                        {['Restore Joint Mobility', 'Build Dense, Hard Muscle', 'Fat Loss & High Energy'].map((option) => (
-                          <button
-                            key={option}
-                            onClick={() => {
-                              setQuizAnswers(prev => ({ ...prev, goal: option }))
-                              setQuizStep(3)
-                            }}
-                            className="w-full p-5 rounded-2xl border-2 border-border-grid text-left font-bold text-primary hover:border-accent hover:bg-light-accent transition-all duration-200 group flex items-center justify-between"
-                          >
-                            <span>{option}</span>
-                            <span className="w-6 h-6 rounded-full border-2 border-border-grid group-hover:border-accent flex items-center justify-center text-accent">→</span>
-                          </button>
-                        ))}
-                      </div>
-                      <button 
-                        onClick={() => setQuizStep(1)} 
-                        className="mt-8 text-xs font-black text-primary/40 hover:text-accent uppercase tracking-widest flex items-center gap-2 transition-colors"
-                      >
-                        ← Back to start
-                      </button>
-                    </div>
-                  )}
-
-                  {/* Question 3: Pain Points */}
-                  {quizStep === 3 && (
-                    <div className="animate-in fade-in slide-in-from-right-4 duration-500">
-                      <h3 className="text-2xl font-display font-black text-primary mb-8 tracking-tight">Do you suffer from joint stiffness?</h3>
-                      <div className="space-y-4">
-                        {['Yes, frequent pain/stiffness', 'Mild/occasional stiffness', 'No pain, I feel great'].map((option) => (
-                          <button
-                            key={option}
-                            onClick={() => {
-                              const updated = { ...quizAnswers, pain: option }
-                              setQuizAnswers(updated)
-                              setQuizResultReady(true)
-                            }}
-                            className="w-full p-5 rounded-2xl border-2 border-border-grid text-left font-bold text-primary hover:border-accent hover:bg-light-accent transition-all duration-200 group flex items-center justify-between"
-                          >
-                            <span>{option}</span>
-                            <span className="w-6 h-6 rounded-full border-2 border-border-grid group-hover:border-accent flex items-center justify-center text-accent font-black">✓</span>
-                          </button>
-                        ))}
-                      </div>
-                      <button 
-                        onClick={() => setQuizStep(2)} 
-                        className="mt-8 text-xs font-black text-primary/40 hover:text-accent uppercase tracking-widest flex items-center gap-2 transition-colors"
-                      >
-                        ← Previous step
-                      </button>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                /* QUIZ SUCCESS STATE */
-                <div className="text-center py-4 animate-in zoom-in-95 duration-500">
-                  <div className="w-20 h-20 bg-accent/10 text-accent rounded-full flex items-center justify-center mx-auto mb-8 text-4xl font-black">
-                    ✓
-                  </div>
-                  <h3 className="text-3xl font-display font-black text-primary mb-4 tracking-tight">Score Projected!</h3>
-                  <p className="text-neutral-dark/60 font-medium mb-10 leading-relaxed">
-                    Based on your profile, your longevity index is <span className="text-primary font-black">78/100</span>. We have generated a custom blueprint for your <span className="text-accent font-bold">{quizAnswers.goal}</span> goals.
-                  </p>
-
-                  <div className="bg-secondary/40 p-8 rounded-3xl border border-border-grid text-left mb-10">
-                    <h4 className="text-xs font-black text-primary uppercase tracking-[0.2em] mb-4">Initial Recommendations:</h4>
-                    <ul className="space-y-4 text-sm font-bold text-neutral-dark/70">
-                      <li className="flex items-start gap-3">
-                        <span className="text-accent">▶</span> Priority: Shoulder external rotation & Hip flexor decompression.
-                      </li>
-                      <li className="flex items-start gap-3">
-                        <span className="text-accent">▶</span> Programming: Low-shear kettlebell stabilization focus for 4 weeks.
-                      </li>
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a 
-                      href="#pricing"
-                      className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-accent hover:bg-accent/90 text-white font-black rounded-xl transition-all duration-200 shadow-xl shadow-accent/20 active:scale-98"
-                    >
-                      Unlock Full Report
-                    </a>
-                    <button 
-                      onClick={resetQuiz}
-                      className="w-full sm:w-auto text-xs font-black text-primary/40 hover:text-primary uppercase tracking-widest py-3 transition-colors"
-                    >
-                      Retake Quiz
-                    </button>
-                  </div>
-                </div>
-              )}
-
-            </div>
-          </div>
-
+          <AssessmentQuiz />
         </div>
       </section>
 
