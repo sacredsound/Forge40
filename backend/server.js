@@ -37,7 +37,21 @@ function initializeDatabase() {
       )
     `)
 
-    // Assessment completions table
+    // Quiz Results table (new)
+    db.run(`
+      CREATE TABLE IF NOT EXISTS quiz_results (
+        id TEXT PRIMARY KEY,
+        email TEXT NOT NULL,
+        score INTEGER NOT NULL,
+        bucket TEXT NOT NULL,
+        answers_json TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        converted_to_blueprint BOOLEAN DEFAULT FALSE,
+        converted_to_membership BOOLEAN DEFAULT FALSE
+      )
+    `)
+
+    // Assessment completions table (original)
     db.run(`
       CREATE TABLE IF NOT EXISTS assessment_completions (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -67,6 +81,26 @@ function initializeDatabase() {
 }
 
 // API Routes
+app.post('/api/quiz-results', (req, res) => {
+  const { email, score, bucket, answers_json } = req.body
+  if (!email || !score || !bucket) {
+    return res.status(400).json({ error: 'Incomplete quiz results.' })
+  }
+
+  const id = Date.now().toString() // Simple ID generation
+  db.run(
+    'INSERT INTO quiz_results (id, email, score, bucket, answers_json) VALUES (?, ?, ?, ?, ?)',
+    [id, email, score, bucket, answers_json],
+    function (err) {
+      if (err) {
+        console.error(err)
+        return res.status(500).json({ error: 'Failed to save quiz results.' })
+      }
+      return res.status(201).json({ success: true, id, message: 'Results saved successfully!' })
+    }
+  )
+})
+
 app.post('/api/newsletter', (req, res) => {
   const { email } = req.body
   if (!email || !email.includes('@')) {
